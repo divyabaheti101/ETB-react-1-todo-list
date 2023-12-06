@@ -15,6 +15,7 @@ function App() {
     const newTodos = [...todos];
     newTodos[index] = text;
     setTodos(newTodos);
+    console.log('check');
   }
 
   return (
