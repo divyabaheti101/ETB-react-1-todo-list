@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 
 function App() {
   const [todos, setTodos] = useState([]);
-
+  console.log(todos);
   // You can call useEffect as many times as you want.
   // Here since params are not passed into [], it will be called only once after render.
   useEffect(() => {
     const storedTodos = JSON.parse(localStorage.getItem('todos'));
+    console.log('called');
+    console.log('ls2 ', JSON.parse(localStorage.getItem('todos')));
     if(storedTodos.length > 0) {
       setTodos(storedTodos);
     }
@@ -15,6 +17,8 @@ function App() {
   // parameter todos passes in [] means every time there is a change to todo useEffect will be called.
   useEffect(() => {
     localStorage.setItem('todos', JSON.stringify(todos));
+    console.log('call: ', todos);
+    console.log('ls ', JSON.parse(localStorage.getItem('todos')));
   }, [todos]);
 
   function addTodos(text) {
